@@ -1,0 +1,26 @@
+# Initialize an empty list to store grades
+grades = []
+
+# open a file in write mode (this will create or overwrite 'grades.txt')
+with open('grades.txt', 'w') as file:
+    while True:
+        # prompt the user for a grade
+        grade_input = input("Enter a grade (or type 'done' to finish): ")
+
+        # check if the user wants to stop
+        if grade_input.lower() == 'done':
+            break
+
+        try:
+            # convert the grade to a float and append it to the list
+            grade = float(grade_input)
+            grades.append(grade)
+
+            # write the grade to the file (one per line)
+            file.write(f"{grade}\n")
+
+        except ValueError:
+            print("Please enter a valid number for the grade.")
+
+# notify the user that the grades have been written to the file
+print("Grades have been saved to 'grades.txt'.")
